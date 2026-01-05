@@ -1,0 +1,4 @@
+This is a sample text file for testing file downloads.
+You can download this file using the /DOWNLOAD command.
+
+
