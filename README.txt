@@ -1,16 +1,15 @@
-================================================================================
-INSTANT MESSENGER - USAGE INSTRUCTIONS
-================================================================================
+INSTANT MESSENGER instructions
+
 
 This instant messenger system consists of a server (server.py) and client (client.py)
 program written in Python 3.13. The system uses TCP for messaging and supports
 both TCP and UDP for file downloads.
 
-================================================================================
+-----
 SETUP
-================================================================================
+-----
 
-1. Ensure Python 3.13 is installed on your system
+1. Install Python 3.13 on your system.
 2. The server will automatically create a "SharedFiles" folder if it doesn't exist
 3. Alternatively, set the SERVER_SHARED_FILES environment variable to specify
    a custom path for the shared files folder
@@ -18,12 +17,9 @@ SETUP
 Example (Windows):
     set SERVER_SHARED_FILES=C:\MySharedFiles
 
-Example (Linux/Mac):
-    export SERVER_SHARED_FILES=/path/to/shared/files
-
-================================================================================
+-------------------
 STARTING THE SERVER
-================================================================================
+-------------------
 
 Command:
     python server.py [port]
@@ -32,14 +28,14 @@ Example:
     python server.py 12000
 
 The server will:
-- Start listening on the specified port
-- Display connection information when clients connect
+- Start listening on the port provided
+- Display connection info when a client connects
 - Create a "SharedFiles" folder if it doesn't exist
-- Print the absolute path of the SharedFiles folder on startup
+- Print the path of "SharedFiles" folder on startup.
 
-================================================================================
+-----------------
 STARTING A CLIENT
-================================================================================
+-----------------
 
 Command:
     python client.py [username] [hostname] [port]
@@ -47,73 +43,73 @@ Command:
 Example:
     python client.py John 127.0.0.1 12000
 
-This will:
-- Connect a client named "John" to the server at 127.0.0.1:12000
-- Display a welcome message from the server
+The client will:
+- Connect a client named John to the server at 127.0.0.1:12000
+- Display a welcome msg. from the server
 - Create a folder named "John" for downloaded files
-- Show an input prompt: [John]>
+- Show an input prompt, e.g [John]>
 
-================================================================================
+-------------------
 BASIC FUNCTIONALITY
-================================================================================
+-------------------
 
-1. CONNECTION HANDLING:
+1. Connection handling:
    - When a client connects, the server prints: "Connection from IP:PORT"
    - The client receives a welcome message from the server
    - Multiple clients can connect simultaneously
    - When a client joins, all other clients see: "[username] has joined"
-   - When a client leaves (via /LEAVE or /QUIT), all others see: "[username] has left"
-   - Unexpected disconnections are handled gracefully
+   - When a client leaves ,via /LEAVE or /QUIT, all others see: "[username] has left"
+   - Unexpected disconnections are handled gracefully.
 
-2. DEFAULT MESSAGING:
-   - Simply type a message and press Enter to broadcast it to all other clients
+2. Default messaging:
+   - Type a message and press enter to broadcast it to all other clients
    - Format displayed: "username: message"
 
-================================================================================
-MESSAGING COMMANDS
-================================================================================
+--------
+COMMANDS
+--------
 
 /BROADCAST <message>
-    Explicitly broadcast a message to all other clients
-    Example: /BROADCAST Hello everyone!
+    broadcast a message to all other clients
+    e.g /BROADCAST Hello everyone!
     Format displayed: "[BROADCAST] username: message"
 
 /UNICAST <username> <message>
-    Send a private message to a specific user
+    Send a private message to specified user
     Requires at least 2 clients to be connected
-    Example: /UNICAST John Hello John!
+    e.g /UNICAST John Hello John!
     Format displayed: "[UNICAST] username: message"
-    If the target user is not found, you'll receive an error message
+    If the target user is not found, you'll receive an error message.
 
 /JOINGROUP <group_name>
-    Join a named group (creates the group if it doesn't exist)
-    Example: /JOINGROUP TeamA
+    Join a named group, group created if it doesnt exist. 
+    e.g /JOINGROUP TeamA
     You'll receive confirmation: "Joined group 'TeamA'"
 
 /LEAVEGROUP <group_name>
     Leave a named group
-    Example: /LEAVEGROUP TeamA
+    e.g /LEAVEGROUP TeamA
     You'll receive confirmation: "Left group 'TeamA'"
 
 /GROUP <group_name> <message>
     Send a message to all members of a specific group (multicast)
     Only members of the group will receive the message
-    Example: /GROUP TeamA Meeting at 3pm
+    e.g /GROUP TeamA Meeting at 3pm
     Format displayed: "[GROUP:TeamA] username: message"
 
 /LISTUSERS
     Display all currently connected users
-    Example output: "Connected users (3): John, Alice, Bob"
+    Example output: "Connected users (3): Tim, John, Sally"
 
 /LISTGROUPS
     Display all existing groups and their members
     Example output:
-        TeamA (2 members): John, Alice
-        TeamB (1 members): Bob
+        TeamA (2 members): Tim, John
+        TeamB (1 members): Sally
 
-================================================================================
+----------------
 FILE DOWNLOADING
-================================================================================
+----------------
 
 /LISTFILES
     Access the SharedFiles folder and list all available files
@@ -127,7 +123,7 @@ FILE DOWNLOADING
         image.jpg
         video.mp4"
 
-/DOWNLOAD <filename> [TCP|UDP]
+/DOWNLOAD <filename> [TCP/UDP]
     Download a file from the SharedFiles folder
     - The file will be saved in a folder named after your username
     - You can specify TCP (default) or UDP protocol
@@ -268,5 +264,3 @@ Solution: This should not happen. The code handles disconnections gracefully.
 ================================================================================
 END OF README
 ================================================================================
-
-
