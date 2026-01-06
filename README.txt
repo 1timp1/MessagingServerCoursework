@@ -3,7 +3,7 @@ INSTANT MESSENGER instructions
 
 This instant messenger system consists of a server (server.py) and client (client.py)
 program written in Python 3.13. The system uses TCP for messaging and supports
-both TCP and UDP for file downloads.
+both TCP and UDP for downloading files.
 
 -----
 SETUP
@@ -11,7 +11,7 @@ SETUP
 
 1. Install Python 3.13 on your system.
 2. The server will automatically create a "SharedFiles" folder if it doesn't exist
-3. Alternatively, set the SERVER_SHARED_FILES environment variable to specify
+3. OR set the SERVER_SHARED_FILES environment variable to specify
    a custom path for the shared files folder
 
 Example (Windows):
@@ -261,6 +261,5 @@ Problem: Server crashes when client disconnects
 Solution: This should not happen. The code handles disconnections gracefully.
           If it occurs, check Python version (must be 3.13)
 
--------------
-END OF README
--------------
+
+Enjoy ! :) 
