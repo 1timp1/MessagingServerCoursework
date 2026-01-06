@@ -142,9 +142,9 @@ FILE DOWNLOADING
     Note: Downloaded files are saved in a folder named after your username.
     For example, if your username is "John", files are saved in "./John/"
 
-================================================================================
+--------------
 OTHER COMMANDS
-================================================================================
+--------------
 
 /HELP
     Display a list of all available commands
@@ -153,9 +153,9 @@ OTHER COMMANDS
     Gracefully disconnect from the server
     All other clients will see: "[username] has left"
 
-================================================================================
+--------------
 USAGE EXAMPLES
-================================================================================
+--------------
 
 Example 1: Basic Chat
     Server: python server.py 12000
@@ -192,9 +192,9 @@ Example 4: File Download
     Client2: /DOWNLOAD image.jpg UDP
     File is downloaded to ./Bob/image.jpg via UDP protocol
 
-================================================================================
+-----------------
 TECHNICAL DETAILS
-================================================================================
+-----------------
 
 Protocol Usage:
 - TCP: Used for all messaging and default file downloads
@@ -219,9 +219,9 @@ Error Handling:
 - File not found errors are displayed to the client
 - Connection errors are handled gracefully
 
-================================================================================
+-----
 NOTES
-================================================================================
+-----
 
 1. The server must be started before clients can connect
 2. All file operations are relative to the directory where the programs are run
@@ -234,9 +234,9 @@ NOTES
 9. The server continues running even if all clients disconnect
 10. Use Ctrl+C to stop the server or client
 
-================================================================================
+---------------
 TROUBLESHOOTING
-================================================================================
+---------------
 
 Problem: "Connection refused" error
 Solution: Ensure the server is running and the port number is correct
@@ -261,6 +261,6 @@ Problem: Server crashes when client disconnects
 Solution: This should not happen. The code handles disconnections gracefully.
           If it occurs, check Python version (must be 3.13)
 
-================================================================================
+-------------
 END OF README
-================================================================================
+-------------
